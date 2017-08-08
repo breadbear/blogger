@@ -6,8 +6,13 @@
   <% end %>
 </p>
 <p>
-  <%= link_to "VIEW ALL TAGS", tags_path %>
+  <%= link_to "VIEW ALL TAGS", tags_path %><br/>
 </p>
+<p> <% if @article.image.exists? %>
+      <%= image_tag @article.image.url %>
+    <% end %>
+</p><br/>
+
 <p><%= @article.body %></p>
 <h3>Comments (<%= @article.comments.size %>)</h3>
 <%= render partial: 'articles/comment', collection: @article.comments %>
